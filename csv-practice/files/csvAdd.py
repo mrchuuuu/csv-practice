@@ -1,0 +1,37 @@
+import csv
+import time
+
+def csv_add():
+    
+    studentFile = open('student.csv', 'a')
+    writeData = csv.writer(studentFile)
+
+    studentName = input('Enter Student Name: ')
+    studentId = input('Enter Student ID# YYYY-MMMM: ')
+    studentYear = input('Enter Student Year Level: ')
+    studentGender = input('Enter Student Gender: ')
+
+    studentData = [studentName, studentId, studentYear, studentGender]
+    writeData.writerow(studentData)
+         
+    studentFile.close()    
+        
+if __name__ == "__main__":
+    print("Program Executing..")
+    
+    theLoop = True
+    while theLoop:
+        csv_add()
+        
+        choice = input("Do you still want to add more students? y/n ")
+        
+        if choice == 'y' or choice == 'Y' :
+            
+            theLoop = True
+
+        else :
+            theLoop = False
+        
+    time.sleep(2) 
+    print("Data Entered!!")
+    
